@@ -1,5 +1,5 @@
 # SNI-Proxy
-Very lean dynamic ingress traffic router based on alpine linux and inbound rules based URI and Port rewriting.
+Very lean dynamic ingress traffic router based on alpine linux and inbound rules based URI and Port rewriting. Works for tls-sni and http-hostname based tcp traffic.
 
 ## Scope
 This service discovery is based on docker embedded dns and solving multiple requirements:
@@ -8,7 +8,7 @@ This service discovery is based on docker embedded dns and solving multiple requ
 - Always up to date when further containers are spinned up or removed
 
 ## Warning
-This library consumes ways more CPU then haproxy. An alternative go-library is at work.
+For more throughput and less CPU usage, zero-copy and tcp-splicing needs to be implemented in the underlying library. Golang also lacks support: https://github.com/golang/go/issues/10948
 
 ## Docker compose sample excerpts
 ```
