@@ -9,10 +9,10 @@ Solving multiple requirements:
 - Always up to date when further containers are spinned up or removed
 
 ## Docker Swarm Mode 1.12+
-Built for docker swarm mode ingress networking. Secure service discovery using fqdn forwarding with dns resolution based on  embedded dns. Therefore there is no need to mount the docker socket and maintain labels on compose recipe. Just define CNAME entries per network. Lean and secure alternative to [Traefik](http://traefik.io), [Fabio](https://github.com/fabiolb/fabio), [Gobetween](http://gobetween.io/), [Dockerflow](http://proxy.dockerflow.com/), etc.
+Built for docker swarm mode ingress networking: Secure service discovery using fqdn forwarding with dns resolution based on  embedded dns. Therefore there is no need to mount the docker socket and maintain labels on compose recipe. Just define your fully qualified service names per network as shown in the sample excerpts below. Lean and secure alternative to [Traefik](http://traefik.io), [Fabio](https://github.com/fabiolb/fabio), [Gobetween](http://gobetween.io/), [Dockerflow](http://proxy.dockerflow.com/), etc.
 
 ## Warning
-For more throughput and less CPU usage, zero-copy and tcp-splicing needs to be implemented in the underlying library. Golang also lacks support: https://github.com/golang/go/issues/10948. For high throughput and low CPU consumption, only haproxy based ingress controllers perform best. (A nginx alternative using the ngx_stream_core_module and ngx_stream_ssl_preread_module modules was not tested yet.)
+For more throughput and less CPU usage, zero-copy and tcp-splicing needs to be implemented in the underlying library. Golang also lacks support: https://github.com/golang/go/issues/10948. (All golang based projects like Traefic etc. are also affected) For high throughput and low CPU consumption, only haproxy based ingress controllers perform best. (A nginx alternative using the ngx_stream_core_module and ngx_stream_ssl_preread_module modules was not tested yet.)
 
 ## Docker compose sample excerpts
 ```
