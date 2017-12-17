@@ -1,14 +1,18 @@
 # SNI-Proxy
-Very lean dynamic ingress traffic router based on alpine linux and inbound rules based URI and Port rewriting.
+Very lean dynamic ingress traffic router based on alpine linux and inbound rules based URI and Port rewriting. Works for tls-sni and http-hostname based tcp traffic.
 
 ## Scope
-This service discovery is based on docker embedded dns and solving multiple requirements:
-- Port overlapping on HTTP and TCP (eg. SNI on TLS)
+Solving multiple requirements:
+- Port overlapping on HTTP and HTTPS (eg. SNI on TLS or Hostname on HTTP)
 - End to end encryption with TLS passthrough
+- Service name based routing
 - Always up to date when further containers are spinned up or removed
 
+## Docker Swarm Mode 1.12+
+Built for docker swarm mode ingress networking: Secure service discovery using fqdn forwarding with dns resolution based on  embedded dns. Therefore there is no need to mount the docker socket and maintain labels on compose recipe. Just define your fully qualified service names per network as shown in the sample excerpts below. Lean and secure alternative to [Traefik](http://traefik.io), [Fabio](https://github.com/fabiolb/fabio), [Gobetween](http://gobetween.io/), [Dockerflow](http://proxy.dockerflow.com/), etc.
+
 ## Warning
-This library consumes ways more CPU then haproxy. An alternative go-library is at work.
+For more throughput and less CPU usage, zero-copy and tcp-splicing needs to be implemented in the underlying library. Golang also lacks support: https://github.com/golang/go/issues/10948. (All golang based projects like Traefik etc. are also affected) For high throughput and low CPU consumption, only haproxy based ingress handling performs best. (A nginx alternative using the modules ngx_stream_core_module and ngx_stream_ssl_preread_module was not tested yet.)
 
 ## Docker compose sample excerpts
 ```
