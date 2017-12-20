@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cp /etc/sniproxy.tmpl /etc/sniproxy.conf
+
 awk -v listeners="${LISTENERS}" 'BEGIN {
     split (listeners, sections, " ");
     for (section in sections) {
