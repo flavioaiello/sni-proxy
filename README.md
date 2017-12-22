@@ -28,10 +28,13 @@ services:
     build: .
     environment:
       - LISTENERS=http;8080 tls;8443
-      - RULES=portainer.*;portainer:9000 .*;*:8000
+      - RULES_HTTP=whoami.*;whoami:8000 .*;*:8080
+      - RULES_TLS=.*;*:8443
     ports:
+      - "80:8080"
+      - "443:8443"
       - "8080:8080"
-      - "443:443"
+      - "8443:8443"
 
   whoami-a:
     image: jwilder/whoami:latest
