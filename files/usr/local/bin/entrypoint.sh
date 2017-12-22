@@ -6,13 +6,23 @@ awk -v listeners="${LISTENERS}" 'BEGIN {
     split (listeners, sections, " ");
     for (section in sections) {
         split (sections[section], listener, ";")
-        print "listener " listener[2] " {\n   proto " listener[1] "\n}\n"
+        print "listener " listener[2] " {\n   proto " listener[1] "\n   table " listener[1] "\n}\n"
     }
 }' >> /etc/sniproxy.conf
 
-awk -v rules="${RULES}" 'BEGIN {
+awk -v rules="${RULES_HTTP}" 'BEGIN {
     split (rules, sections, " ");
-    print "table {"
+    print "table http {"
+    for (section in sections) {
+        split (sections[section], rule, ";")
+        print "   " rule[1] " " rule[2]
+    }
+    print "}\n"
+}' >> /etc/sniproxy.conf
+
+awk -v rules="${RULES_TLS}" 'BEGIN {
+    split (rules, sections, " ");
+    print "table tls {"
     for (section in sections) {
         split (sections[section], rule, ";")
         print "   " rule[1] " " rule[2]
