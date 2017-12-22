@@ -6,7 +6,7 @@ awk -v listeners="${LISTENERS}" 'BEGIN {
     split (listeners, sections, " ");
     for (section in sections) {
         split (sections[section], listener, ";")
-        print "listener " listener[2] " {\n   proto " listener[1] "\n}"
+        print "listener " listener[2] " {\n   proto " listener[1] "\n}\n"
     }
 }' >> /etc/sniproxy.conf
 
@@ -17,7 +17,7 @@ awk -v rules="${RULES}" 'BEGIN {
         split (sections[section], rule, ";")
         print "   " rule[1] " " rule[2]
     }
-    print "}"
+    print "}\n"
 }' >> /etc/sniproxy.conf
 
 echo "*** Show sniproxy configuration ***"
