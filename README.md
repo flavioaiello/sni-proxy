@@ -8,7 +8,7 @@ Very lean dynamic ingress traffic router based on alpine linux and inbound rules
 ## Scope
 Solving multiple requirements:
 - Port overlapping on HTTP and HTTPS (eg. SNI on TLS or Hostname on HTTP)
-- End to end encryption with TLS passthrough
+- End to end encryption with TLS passthrough (This is the SNI part)
 - Service name based routing
 - Always up to date when further containers are spinned up or removed
 
