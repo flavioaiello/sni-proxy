@@ -1,6 +1,6 @@
-[![Docker Build Status](https://img.shields.io/docker/build/flavioaiello/sni-proxy.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
-[![Docker Stars](https://img.shields.io/docker/stars/flavioaiello/sni-proxy.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/sni-proxy.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
+[![Docker Build Status](https://img.shields.io/docker/build/flavioaiello/sni-proxy.svg)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
+[![Docker Stars](https://img.shields.io/docker/stars/flavioaiello/sni-proxy.svg)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/sni-proxy.svg)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
 
 # DEPRECATED
 Use https://github.com/flavioaiello/swarm-router instead!
