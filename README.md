@@ -2,7 +2,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/flavioaiello/sni-proxy.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/sni-proxy.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/sni-proxy/)
 
-# DEPRECATION NOTICE
+# DEPRECATED
 Use https://github.com/flavioaiello/swarm-router instead!
 
 # SNI-Proxy
